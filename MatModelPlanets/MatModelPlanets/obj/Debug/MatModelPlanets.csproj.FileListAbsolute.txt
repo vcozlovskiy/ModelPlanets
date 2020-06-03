@@ -1,0 +1,10 @@
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.csprojAssemblyReference.cache
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.Form1.resources
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.Properties.Resources.resources
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.csproj.GenerateResource.cache
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.csproj.CoreCompileInputs.cache
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.exe.config
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.exe
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.pdb
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.exe
+C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.pdb

@@ -16,16 +16,19 @@ namespace MatModelPlanets
         {
             InitializeComponent();
         }
+        double impulse;
         List<Planet> planets = new List<Planet>();
-        double dt = 1;
-        double a = 0.01;
+        double dt = 0.1;
+        double a = 8;
         Pen pen = new Pen(Color.Red, 5);
+        Pen Pen2 = new Pen(Color.White,1);
         void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
             for (int j = 0; j < planets.Count; j++)
             {
                 graphics.DrawEllipse(pen, (float)planets[j].x, (float)planets[j].y, 5, 5);
+                graphics.DrawLine(Pen2,(float)planets[j].x, (float)planets[j].y, (float)(planets[j].x + planets[j].FX/20), (float)(planets[j].y +planets[j].FY/20));
             }
         }
         private void button1_MouseClick(object sender, MouseEventArgs e)
@@ -35,52 +38,31 @@ namespace MatModelPlanets
             pictureBox1.Refresh();
         }
         double distans;
+        double ForsMod;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for (int j = 0; j < planets.Count; j++) 
+            for (int j = 0; j < planets.Count ; j++) 
             {
-                try
+                for (int i = 0; i < planets.Count; i++)
                 {
-                    distans = Math.Sqrt(Math.Abs((planets[j].x - planets[j + 1].x) * (planets[j].x - planets[j + 1].x)) + Math.Abs((planets[j].y - planets[j + 1].y) * (planets[j].y - planets[j + 1].y)));
-                    planets[j].FX += a * -1 * (planets[j].x - planets[j + 1].x) / Math.Abs(planets[j].x - planets[j + 1].x) * planets[j].mass * planets[j + 1].mass / distans;
-                    planets[j].FY += a * -1 * (planets[j].y - planets[j + 1].y) / Math.Abs(planets[j].y - planets[j + 1].y) * planets[j].mass * planets[j + 1].mass / distans;
-
-                    planets[j + 1].FX = a * -1 * (planets[j+1].x - planets[j].x) / Math.Abs(planets[j + 1].x - planets[j].x) * planets[j + 1].mass * planets[j].mass / distans;
-                    planets[j + 1].FY = a * -1 * (planets[j+1].y - planets[j].y) / Math.Abs(planets[j + 1].y - planets[j].y) * planets[j + 1].mass * planets[j].mass / distans;
-
-                    planets[j].VelX += planets[j].FX / planets[j].mass * dt;
-                    planets[j + 1].VelX += planets[j + 1].FX / planets[j + 1].mass * dt;
-
-                    planets[j].VelY += planets[j].FY / planets[j].mass * dt;
-                    planets[j + 1].VelY += planets[j + 1].FY / planets[j + 1].mass * dt;
-
-                    planets[j + 1].x += planets[j + 1].VelX * dt;
-                    planets[j].x += planets[j].VelX * dt;
-
-                    planets[j + 1].y += planets[j + 1].VelY * dt;
-                    planets[j].y += planets[j].VelY * dt;
+                    distans = Math.Sqrt(Math.Abs((planets[i].x - planets[j].x) * (planets[i].x - planets[j].x)) + Math.Abs((planets[i].y - planets[j].y) * (planets[i].y - planets[j].y)));
+                    if (distans < 20)
+                    {
+                        distans = 20;
+                    }
+                    ForsMod = a * planets[i].mass * planets[j].mass / distans;
+                    planets[i].FX += 1 * -1 * ForsMod * (planets[i].x - planets[j].x) / distans;
+                    planets[i].FY += 1 * -1 * ForsMod * (planets[i].y - planets[j].y) / distans;
                 }
-                catch 
-                {
-                    distans = Math.Sqrt(Math.Abs((planets[j].x - planets[0].x) * (planets[j].x - planets[0].x)) + Math.Abs((planets[j].y - planets[0].y) * (planets[j].y - planets[0].y)));
-                    planets[j].FX = a * -1 * (planets[j].x - planets[0].x) / Math.Abs(planets[j].x - planets[0].x) * planets[j].mass * planets[0].mass / distans;
-                    planets[j].FY = a * -1 * (planets[j].y - planets[0].y) / Math.Abs(planets[j].y - planets[0].y) * planets[j].mass * planets[0].mass / distans;
-
-                    planets[0].FX = a * -1 * (planets[0].x - planets[j].x) / Math.Abs(planets[0].x - planets[j].x) * planets[0].mass * planets[j].mass / distans;
-                    planets[0].FY = a * -1 * (planets[0].y - planets[j].y) / Math.Abs(planets[0].y - planets[j].y) * planets[0].mass * planets[j].mass / distans;
-
-                    planets[j].VelX += planets[j].FX / planets[j].mass * dt;
-                    planets[0].VelX += planets[0].FX / planets[0].mass * dt;
-
-                    planets[j].VelY += planets[j].FY / planets[j].mass * dt;
-                    planets[0].VelY += planets[0].FY / planets[0].mass * dt;
-
-                    planets[0].x += planets[0].VelX * dt;
-                    planets[j].x += planets[j].VelX * dt;
-
-                    planets[0].y += planets[0].VelY * dt;
-                    planets[j].y += planets[j].VelY * dt;
-                }
+                planets[j].VelX += planets[j].FX / planets[j].mass * dt * dt / 2;
+                planets[j].VelY += planets[j].FY / planets[j].mass * dt * dt / 2;
+                planets[j].FX = 0;
+                planets[j].FY = 0;
+            }
+            for(int i = 0;i < planets.Count; i++)
+            {
+                planets[i].x += planets[i].VelX * dt;
+                planets[i].y += planets[i].VelY * dt;
             }
             pictureBox1.Refresh();
         }
@@ -121,11 +103,11 @@ namespace MatModelPlanets
             public Random Cor = new Random();
             public Planet(int sizeX, int sizeY)
             {
-                mass = Cor.Next(0, 100) * Cor.NextDouble();
+                mass = Cor.Next(0, 1000) * Cor.NextDouble();
                 x = Cor.Next(0, (int)sizeX);
                 y = Cor.Next(0, (int)sizeY);
-                VelX = Cor.Next(0, 0);
-                VelY = Cor.Next(0, 0);
+                VelX = Cor.Next(-10,10);
+                VelY = Cor.Next(-10,10);
             }
             public Planet(int CordX, int CordY, double velx, double vely, double massa)
             {
@@ -135,6 +117,21 @@ namespace MatModelPlanets
                 VelY = vely;
                 mass = massa;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            planets.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dt-=0.025;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dt+=0.025;
         }
     }
 }

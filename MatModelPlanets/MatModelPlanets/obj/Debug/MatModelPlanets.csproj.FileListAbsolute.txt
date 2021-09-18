@@ -8,3 +8,14 @@ C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\bin\Debug\MatMode
 C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.pdb
 C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.exe
 C:\Users\Влад\source\repos\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.pdb
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.exe.config
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.exe
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\bin\Debug\MatModelPlanets.pdb
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.csprojAssemblyReference.cache
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.Properties.Resources.resources
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.csproj.GenerateResource.cache
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.csproj.CoreCompileInputs.cache
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.exe
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.pdb
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.MainForm.resources
+C:\Users\kozlo\source\repos\Poligon\ModelPlanets\MatModelPlanets\MatModelPlanets\obj\Debug\MatModelPlanets.Forms.AddPlanet.resources
